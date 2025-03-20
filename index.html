@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="to-do">
+        <h2>To Do List</h2>
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Add a new task..." />
+          <select id="list-select">
+            <option value="important">Important</option>
+            <option value="less-important">Less Important</option>
+            <option value="optional">Optional</option>
+          </select>
+          <button onclick="addTask()">ADD</button>
+        </div>
+        <div class="row">
+          <input type="text" id="search-box" placeholder="Search tasks..." />
+          <label>
+            <input type="checkbox" id="case-insensitive-checkbox" />
+            Case Insensitive
+          </label>
+        </div>
+
+        <div class="task-list">
+          <h3 onclick="toggleList('important-list')">Important</h3>
+          <ul id="important-list" class="task-ul"></ul>
+        </div>
+        <div class="task-list">
+          <h3 onclick="toggleList('less-important-list')">Less Important</h3>
+          <ul id="less-important-list" class="task-ul"></ul>
+        </div>
+        <div class="task-list">
+          <h3 onclick="toggleList('optional-list')">Optional</h3>
+          <ul id="optional-list" class="task-ul"></ul>
+        </div>
+
+        <div>
+          <button id="undo-button">Undo Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <dialog id="delete-dialog">
+      <p id="delete-text">Are you sure you want to delete this task?</p>
+      <p id="task-content"></p>
+      <button id="confirm-delete">YES</button>
+      <button id="cancel-delete">NO</button>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
